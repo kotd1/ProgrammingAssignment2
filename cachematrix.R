@@ -12,17 +12,17 @@ makeCacheMatrix <- function(x = matrix()) {   # the function's input is an inver
   }                     
                                         # The following funcions would be called by the cacheSolve function,
                                         # or the user:
-  get <- function() {x}                 # get - this function returns the original, non-inverted matrix
-  setinv <- function(solve) s <<- solve # setinv - this function will cache the inverted matrix 
-                                        #   in the first run of cacheSolve, using a superassignment
-  getinv <- function() {s}              # getinv - a function that returns the cached inverted matrix
-  list(set = set, get = get,            # a list of the created functions that makes them accessiable
+  get <- function() {x}                 # returning the original, non-inverted matrix
+  setinv <- function(solve) s <<- solve # caching the inverted matrix 
+                                        #   
+  getinv <- function() {s}              # returning the cached inverted matrix (i cached)
+  list(set = set, get = get,            # a list of the created functions that makes them accessible
        setinv = setinv,
        getinv = getinv)
 }
 
 
-## this function uses the makeCacheMatrix to invert the matrix, cache it and return it. 
+## The second function uses the makeCacheMatrix to invert the matrix, cache it and return it. 
 ## its input is the output of makeCacheMatrix()
   
 
